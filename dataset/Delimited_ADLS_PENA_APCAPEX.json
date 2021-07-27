@@ -2,7 +2,7 @@
 	"name": "Delimited_ADLS_PENA_APCAPEX",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "ADLS_dlsmsnpoc",
+			"referenceName": "ADLS_todaysprivate",
 			"type": "LinkedServiceReference"
 		},
 		"annotations": [],
@@ -13,9 +13,7 @@
 				"fileName": {
 					"value": "{year}/{month}/{day}/today.csv",
 					"type": "Expression"
-				},
-				"folderPath": "excel",
-				"fileSystem": "pena"
+				}
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",
