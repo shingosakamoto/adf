@@ -1,0 +1,306 @@
+{
+	"name": "AzureSynapseAnalyticsTable1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSynapseAnalytics1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlDWTable",
+		"schema": [
+			{
+				"name": "Order No",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Line No",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Qty",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Amount",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Price List",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Group",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Group Nm",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Sub Group",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Sub Group Nm",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Division",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Division Nm",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Sub Division",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Sub Division Nm",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Department",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Department Nm",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Sales Rep",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Sales Rep Nm",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Product Line Group",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Product Line Group Nm",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Product Line",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Product Line Nm",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Product Level 2",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Product Level 2 Nm",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Product Level 3",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Product Level 3 Nm",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Product Level 4",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Product Level 4 Nm",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Merchandise Group",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Merchandise Group Nm",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Merchandise",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Merchandise Nm",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Bill to",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Bill to Nm",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Sell to",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Sell to Nm",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Ship to",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Ship to Nm",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Ordered Date",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Cust PO No",
+				"type": "nvarchar"
+			},
+			{
+				"name": "EDI PO Line No",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Warehouse",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Warehouse Nm",
+				"type": "nvarchar"
+			},
+			{
+				"name": "SO No",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Order Source",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Order Type",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Sales Admin",
+				"type": "nvarchar"
+			},
+			{
+				"name": "COA Product",
+				"type": "nvarchar"
+			},
+			{
+				"name": "COA Product Nm",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Status",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Merchandise (Set)",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Merchandise Nm(Set)",
+				"type": "nvarchar"
+			},
+			{
+				"name": "SC",
+				"type": "nvarchar"
+			},
+			{
+				"name": "UOM Comp",
+				"type": "nvarchar"
+			},
+			{
+				"name": "RSD",
+				"type": "nvarchar"
+			},
+			{
+				"name": "RDD",
+				"type": "nvarchar"
+			},
+			{
+				"name": "PSD",
+				"type": "nvarchar"
+			},
+			{
+				"name": "PDD",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Cancel Delivery Limit",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Cancel Ship Limit",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Hold Date",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Sent to DC",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Ship Date",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Inv Date",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Inv No",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Pay Term",
+				"type": "nvarchar"
+			},
+			{
+				"name": "System",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Type",
+				"type": "nvarchar"
+			},
+			{
+				"name": "ETA",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Container",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Impt Inv No",
+				"type": "nvarchar"
+			},
+			{
+				"name": "DO_SO No",
+				"type": "nvarchar"
+			},
+			{
+				"name": "ETA Qty",
+				"type": "nvarchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "OrderHistory"
+		}
+	},
+	"type": "Microsoft.Synapse/workspaces/datasets"
+}

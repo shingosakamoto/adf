@@ -1,0 +1,17 @@
+{
+	"name": "SQL script 4",
+	"properties": {
+		"content": {
+			"query": "SELECT TOP (100) [Order No.]\n,[Line No.]\n,[Qty]\n,[Amount]\n,[Price List]\n,[Group]\n,[Group Nm]\n,[Sub Group]\n,[Sub Group Nm]\n,[Division]\n,[Division Nm]\n,[Sub Division]\n,[Sub Division Nm]\n,[Department]\n,[Department Nm]\n,[Sales Rep]\n,[Sales Rep Nm]\n,[Product Line Group]\n,[Product Line Group Nm]\n,[Product Line]\n,[Product Line Nm]\n,[Product Level 2]\n,[Product Level 2 Nm]\n,[Product Level 3]\n,[Product Level 3 Nm]\n,[Product Level 4]\n,[Product Level 4 Nm]\n,[Merchandise Group]\n,[Merchandise Group Nm]\n,[Merchandise]\n,[Merchandise Nm]\n,[Bill to]\n,[Bill to Nm]\n,[Sell to]\n,[Sell to Nm]\n,[Ship to]\n,[Ship to Nm]\n,[Ordered Date]\n,[Cust PO No.]\n,[EDI PO Line No.]\n,[Warehouse]\n,[Warehouse Nm]\n,[SO No.]\n,[Order Source]\n,[Order Type]\n,[Sales Admin]\n,[COA Product]\n,[COA Product Nm]\n,[Status]\n,[Merchandise (Set)]\n,[Merchandise Nm(Set)]\n,[SC]\n,[UOM Comp]\n,[RSD]\n,[RDD]\n,[PSD]\n,[PDD]\n,[Cancel Delivery Limit]\n,[Cancel Ship Limit]\n,[Hold Date]\n,[Sent to DC]\n,[Ship Date]\n,[Inv Date]\n,[Inv No.]\n,[Pay Term]\n,[System]\n,[Type]\n,[ETA]\n,[Container]\n,[Impt Inv No.]\n,[DO/SO No.]\n,[ETA Qty]\n FROM [dbo].[ExtOrderHistory]",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"poolName": "synapsesql",
+				"databaseName": "synapsesql"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}

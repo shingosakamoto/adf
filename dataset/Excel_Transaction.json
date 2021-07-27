@@ -1,0 +1,38 @@
+{
+	"name": "Excel_Transaction",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ADLS_todaysprivate",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"Sheetname": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "Excel",
+		"typeProperties": {
+			"sheetName": {
+				"value": "@dataset().Sheetname",
+				"type": "Expression"
+			},
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "Transaction YTD DirectQue.xlsx",
+				"fileSystem": "todayscontainer"
+			},
+			"range": "A11",
+			"firstRowAsHeader": true
+		},
+		"schema": [
+			{
+				"type": "String"
+			},
+			{
+				"type": "String"
+			}
+		]
+	},
+	"type": "Microsoft.Synapse/workspaces/datasets"
+}

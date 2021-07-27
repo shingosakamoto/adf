@@ -1,0 +1,10 @@
+{
+	"name": "ADLS_ManagedPrivateEndpoint",
+	"properties": {
+		"privateLinkResourceId": "/subscriptions/bdefa1d2-8d31-405f-95eb-542cf4f22770/resourceGroups/todaysprivate/providers/Microsoft.Storage/storageAccounts/todaysprivate",
+		"groupId": "dfs",
+		"fqdns": [
+			"todaysprivate.dfs.core.windows.net"
+		]
+	}
+}

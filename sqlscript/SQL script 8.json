@@ -1,0 +1,17 @@
+{
+	"name": "SQL script 8",
+	"properties": {
+		"content": {
+			"query": "-- ****** [ACTION REQUIRED] ******\n--Step 1: Create master key for the database\nIF NOT EXISTS(SELECT * FROM sys.symmetric_keys WHERE name LIKE '%DatabaseMasterKey%')\n\tCREATE MASTER KEY ENCRYPTION BY PASSWORD = 'strong' -- Enter a strong password\nGO\n\nIF NOT EXISTS(SELECT * FROM sys.database_credentials WHERE name = 'SynapseManagedIdentity')\n\tCREATE DATABASE SCOPED CREDENTIAL [SynapseManagedIdentity] WITH IDENTITY = 'Managed Identity'\nGo\n\nIF NOT EXISTS (SELECT * FROM sys.external_file_formats WHERE name = 'SynapseParquetFormat') \n\tCREATE EXTERNAL FILE FORMAT [SynapseParquetFormat] \n\tWITH ( FORMAT_TYPE = PARQUET)\nGO\n\nIF NOT EXISTS (SELECT * FROM sys.external_data_sources WHERE name = 'todayscontainer_todaysprivate_dfs_core_windows_net_ManagedIdentity') \n\tCREATE EXTERNAL DATA SOURCE [todayscontainer_todaysprivate_dfs_core_windows_net_ManagedIdentity] \n\tWITH (\n\t\tLOCATION   = 'https://todaysprivate.dfs.core.windows.net/todayscontainer', \n\t\tCREDENTIAL = SynapseManagedIdentity \n\t)\nGo\n\nCREATE EXTERNAL TABLE external_again (\n\t[_c0] varchar(8000),\n\t[_c1] varchar(8000),\n\t[_c2] varchar(8000),\n\t[_c3] varchar(8000),\n\t[_c4] varchar(8000),\n\t[_c5] varchar(8000),\n\t[_c6] varchar(8000),\n\t[_c7] varchar(8000),\n\t[_c8] varchar(8000),\n\t[_c9] varchar(8000),\n\t[_c10] varchar(8000),\n\t[_c11] varchar(8000),\n\t[_c12] varchar(8000),\n\t[_c13] varchar(8000),\n\t[_c14] varchar(8000),\n\t[_c15] varchar(8000),\n\t[_c16] varchar(8000),\n\t[_c17] varchar(8000),\n\t[_c18] varchar(8000),\n\t[_c19] varchar(8000),\n\t[_c20] varchar(8000),\n\t[_c21] varchar(8000),\n\t[_c22] varchar(8000),\n\t[_c23] varchar(8000),\n\t[_c24] varchar(8000),\n\t[_c25] varchar(8000),\n\t[_c26] varchar(8000),\n\t[_c27] varchar(8000),\n\t[_c28] varchar(8000),\n\t[_c29] varchar(8000),\n\t[_c30] varchar(8000),\n\t[_c31] varchar(8000),\n\t[_c32] varchar(8000),\n\t[_c33] varchar(8000),\n\t[_c34] varchar(8000),\n\t[_c35] varchar(8000),\n\t[_c36] varchar(8000),\n\t[_c37] varchar(8000),\n\t[_c38] varchar(8000),\n\t[_c39] varchar(8000),\n\t[_c40] varchar(8000),\n\t[_c41] varchar(8000),\n\t[_c42] varchar(8000),\n\t[_c43] varchar(8000),\n\t[_c44] varchar(8000),\n\t[_c45] varchar(8000),\n\t[_c46] varchar(8000),\n\t[_c47] varchar(8000),\n\t[_c48] varchar(8000),\n\t[_c49] varchar(8000),\n\t[_c50] varchar(8000),\n\t[_c51] varchar(8000),\n\t[_c52] varchar(8000),\n\t[_c53] varchar(8000),\n\t[_c54] varchar(8000),\n\t[_c55] varchar(8000),\n\t[_c56] varchar(8000),\n\t[_c57] varchar(8000),\n\t[_c58] varchar(8000),\n\t[_c59] varchar(8000),\n\t[_c60] varchar(8000),\n\t[_c61] varchar(8000),\n\t[_c62] varchar(8000),\n\t[_c63] varchar(8000),\n\t[_c64] varchar(8000),\n\t[_c65] varchar(8000),\n\t[_c66] varchar(8000),\n\t[_c67] varchar(8000),\n\t[_c68] varchar(8000),\n\t[_c69] varchar(8000),\n\t[_c70] varchar(8000),\n\t[_c71] varchar(8000)\n\t)\n\tWITH (\n\tLOCATION = 'user/trusted-service-user/orderhistory_parquet/part-00000-a5e7f8cd-2181-4c0a-aac2-5be47adf26d5-c000.snappy.parquet',\n\tDATA_SOURCE = [todayscontainer_todaysprivate_dfs_core_windows_net_ManagedIdentity],\n\tFILE_FORMAT = [SynapseParquetFormat]\n\t)\nGO\n\nSELECT TOP 100 * FROM external_again\nGO\n\n",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"poolName": "Built-in",
+				"databaseName": "private"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}

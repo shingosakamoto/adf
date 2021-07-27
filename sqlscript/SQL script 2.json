@@ -1,0 +1,17 @@
+{
+	"name": "SQL script 2",
+	"properties": {
+		"content": {
+			"query": "\nCREATE TABLE [dbo].[OrderHistory]\n(\n\n[Order No] [nvarchar](MAX) NULL,\n[Line No] [nvarchar](MAX) NULL,\n[Qty] [nvarchar](MAX) NULL,\n[Amount] [nvarchar](MAX) NULL,\n[Price List] [nvarchar](MAX) NULL,\n[Group] [nvarchar](MAX) NULL,\n[Group Nm] [nvarchar](MAX) NULL,\n[Sub Group] [nvarchar](MAX) NULL,\n[Sub Group Nm] [nvarchar](MAX) NULL,\n[Division] [nvarchar](MAX) NULL,\n[Division Nm] [nvarchar](MAX) NULL,\n[Sub Division] [nvarchar](MAX) NULL,\n[Sub Division Nm] [nvarchar](MAX) NULL,\n[Department] [nvarchar](MAX) NULL,\n[Department Nm] [nvarchar](MAX) NULL,\n[Sales Rep] [nvarchar](MAX) NULL,\n[Sales Rep Nm] [nvarchar](MAX) NULL,\n[Product Line Group] [nvarchar](MAX) NULL,\n[Product Line Group Nm] [nvarchar](MAX) NULL,\n[Product Line] [nvarchar](MAX) NULL,\n[Product Line Nm] [nvarchar](MAX) NULL,\n[Product Level 2] [nvarchar](MAX) NULL,\n[Product Level 2 Nm] [nvarchar](MAX) NULL,\n[Product Level 3] [nvarchar](MAX) NULL,\n[Product Level 3 Nm] [nvarchar](MAX) NULL,\n[Product Level 4] [nvarchar](MAX) NULL,\n[Product Level 4 Nm] [nvarchar](MAX) NULL,\n[Merchandise Group] [nvarchar](MAX) NULL,\n[Merchandise Group Nm] [nvarchar](MAX) NULL,\n[Merchandise] [nvarchar](MAX) NULL,\n[Merchandise Nm] [nvarchar](MAX) NULL,\n[Bill to] [nvarchar](MAX) NULL,\n[Bill to Nm] [nvarchar](MAX) NULL,\n[Sell to] [nvarchar](MAX) NULL,\n[Sell to Nm] [nvarchar](MAX) NULL,\n[Ship to] [nvarchar](MAX) NULL,\n[Ship to Nm] [nvarchar](MAX) NULL,\n[Ordered Date] [nvarchar](MAX) NULL,\n[Cust PO No] [nvarchar](MAX) NULL,\n[EDI PO Line No] [nvarchar](MAX) NULL,\n[Warehouse] [nvarchar](MAX) NULL,\n[Warehouse Nm] [nvarchar](MAX) NULL,\n[SO No] [nvarchar](MAX) NULL,\n[Order Source] [nvarchar](MAX) NULL,\n[Order Type] [nvarchar](MAX) NULL,\n[Sales Admin] [nvarchar](MAX) NULL,\n[COA Product] [nvarchar](MAX) NULL,\n[COA Product Nm] [nvarchar](MAX) NULL,\n[Status] [nvarchar](MAX) NULL,\n[Merchandise (Set)] [nvarchar](MAX) NULL,\n[Merchandise Nm(Set)] [nvarchar](MAX) NULL,\n[SC] [nvarchar](MAX) NULL,\n[UOM Comp] [nvarchar](MAX) NULL,\n[RSD] [nvarchar](MAX) NULL,\n[RDD] [nvarchar](MAX) NULL,\n[PSD] [nvarchar](MAX) NULL,\n[PDD] [nvarchar](MAX) NULL,\n[Cancel Delivery Limit] [nvarchar](MAX) NULL,\n[Cancel Ship Limit] [nvarchar](MAX) NULL,\n[Hold Date] [nvarchar](MAX) NULL,\n[Sent to DC] [nvarchar](MAX) NULL,\n[Ship Date] [nvarchar](MAX) NULL,\n[Inv Date] [nvarchar](MAX) NULL,\n[Inv No] [nvarchar](MAX) NULL,\n[Pay Term] [nvarchar](MAX) NULL,\n[System] [nvarchar](MAX) NULL,\n[Type] [nvarchar](MAX) NULL,\n[ETA] [nvarchar](MAX) NULL,\n[Container] [nvarchar](MAX) NULL,\n[Impt Inv No] [nvarchar](MAX) NULL,\n[DO_SO No] [nvarchar](MAX) NULL,\n[ETA Qty] [nvarchar](MAX) NULL\n)\nWITH\n(\n\tDISTRIBUTION = ROUND_ROBIN,\n\tCLUSTERED COLUMNSTORE INDEX\n)\nGO\n",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"poolName": "synapsesql",
+				"databaseName": "synapsesql"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}

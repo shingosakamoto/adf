@@ -1,0 +1,17 @@
+{
+	"name": "SQL script 5",
+	"properties": {
+		"content": {
+			"query": "SELECT TOP (100) [_c0]\n,[_c1]\n,[_c2]\n,[_c3]\n,[_c4]\n,[_c5]\n,[_c6]\n,[_c7]\n,[_c8]\n,[_c9]\n,[_c10]\n,[_c11]\n,[_c12]\n,[_c13]\n,[_c14]\n,[_c15]\n,[_c16]\n,[_c17]\n,[_c18]\n,[_c19]\n,[_c20]\n,[_c21]\n,[_c22]\n,[_c23]\n,[_c24]\n,[_c25]\n,[_c26]\n,[_c27]\n,[_c28]\n,[_c29]\n,[_c30]\n,[_c31]\n,[_c32]\n,[_c33]\n,[_c34]\n,[_c35]\n,[_c36]\n,[_c37]\n,[_c38]\n,[_c39]\n,[_c40]\n,[_c41]\n,[_c42]\n,[_c43]\n,[_c44]\n,[_c45]\n,[_c46]\n,[_c47]\n,[_c48]\n,[_c49]\n,[_c50]\n,[_c51]\n,[_c52]\n,[_c53]\n,[_c54]\n,[_c55]\n,[_c56]\n,[_c57]\n,[_c58]\n,[_c59]\n,[_c60]\n,[_c61]\n,[_c62]\n,[_c63]\n,[_c64]\n,[_c65]\n,[_c66]\n,[_c67]\n,[_c68]\n,[_c69]\n,[_c70]\n,[_c71]\n FROM [dbo].[ExtOrderHistory]",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"poolName": "Built-in",
+				"databaseName": "private"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}
