@@ -1,0 +1,144 @@
+{
+	"name": "Sypanse_PENA_Invoice_CAPEX",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSynapseAnalytics",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlDWTable",
+		"schema": [
+			{
+				"name": "Vendor",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Invoice Num",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Invoice Date",
+				"type": "nvarchar"
+			},
+			{
+				"name": "PO Num",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Amount",
+				"type": "decimal",
+				"precision": 20,
+				"scale": 2
+			},
+			{
+				"name": "Category1",
+				"type": "nvarchar"
+			},
+			{
+				"name": "PIC",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Location",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Received in AP Inbox",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Uploaded for Approval",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Invoice Approved",
+				"type": "nvarchar"
+			},
+			{
+				"name": "PO Released",
+				"type": "nvarchar"
+			},
+			{
+				"name": "MIGOd",
+				"type": "nvarchar"
+			},
+			{
+				"name": "MIROd",
+				"type": "nvarchar"
+			},
+			{
+				"name": "MIRO Document",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Barcode Signed",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Sent to CAP",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Processed by CAP",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Issue",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Category2",
+				"type": "nvarchar"
+			},
+			{
+				"name": "PIC Department",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Start Date",
+				"type": "nvarchar"
+			},
+			{
+				"name": "End Date",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Action Items",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Accrue",
+				"type": "nvarchar"
+			},
+			{
+				"name": "JE",
+				"type": "nvarchar"
+			},
+			{
+				"name": "JE Text",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Profit Center",
+				"type": "nvarchar"
+			},
+			{
+				"name": "GL Account_SAP PO",
+				"type": "nvarchar"
+			},
+			{
+				"name": "GL Account_Accrual",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Vendor Name_Shortened",
+				"type": "nvarchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "SAP",
+			"table": "InvoiceTrackerCAPEX"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

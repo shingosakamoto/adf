@@ -1,0 +1,17 @@
+{
+	"name": "Sypanse_PENA_LFA1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSynapseAnalytics",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlDWTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "SAP",
+			"table": "VendorMaster"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

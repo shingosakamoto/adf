@@ -1,0 +1,17 @@
+{
+	"name": "Sypanse_PENA_EKKO",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSynapseAnalytics",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlDWTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "SAP",
+			"table": "PurchasingDocumentHeader"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

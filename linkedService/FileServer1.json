@@ -1,0 +1,17 @@
+{
+	"name": "FileServer1",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "FileServer",
+		"typeProperties": {
+			"host": "C:\\Users\\Public\\Downloads",
+			"userId": "demo1",
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiJlOWU0MGM3Zi1hYzVlLTQ3NjktODcwZC1iMjhiOTc3YzJmYjIiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+		},
+		"connectVia": {
+			"referenceName": "integrationRuntime-VM",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}

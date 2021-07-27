@@ -1,0 +1,17 @@
+{
+	"name": "Sypanse_PENA_BKPF",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSynapseAnalytics",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlDWTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "SAP",
+			"table": "AccountingDocumentHeader"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

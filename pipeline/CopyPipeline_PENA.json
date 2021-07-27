@@ -1,0 +1,3681 @@
+{
+	"name": "CopyPipeline_PENA",
+	"properties": {
+		"activities": [
+			{
+				"name": "Copy_EKKO",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [
+					{
+						"name": "Source",
+						"value": "finance-1-t15//EKKO_T15.csv"
+					},
+					{
+						"name": "Destination",
+						"value": ".Azure Data Lake Storage Gen2 file"
+					}
+				],
+				"typeProperties": {
+					"source": {
+						"type": "DelimitedTextSource",
+						"storeSettings": {
+							"type": "AzureBlobFSReadSettings",
+							"recursive": true,
+							"enablePartitionDiscovery": false
+						},
+						"formatSettings": {
+							"type": "DelimitedTextReadSettings",
+							"skipLineCount": 0
+						}
+					},
+					"sink": {
+						"type": "SqlDWSink",
+						"preCopyScript": "TRUNCATE TABLE [SAP].[PurchasingDocumentHeader]",
+						"tableOption": "autoCreate",
+						"disableMetricsCollection": false
+					},
+					"enableStaging": false,
+					"validateDataConsistency": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "ADLS_PENA_EKKO",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "Sypanse_PENA_EKKO",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "Copy_EKPO",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [
+					{
+						"name": "Source",
+						"value": "finance-1-t15//EKKO_T15.csv"
+					},
+					{
+						"name": "Destination",
+						"value": ".Azure Data Lake Storage Gen2 file"
+					}
+				],
+				"typeProperties": {
+					"source": {
+						"type": "DelimitedTextSource",
+						"storeSettings": {
+							"type": "AzureBlobFSReadSettings",
+							"recursive": true,
+							"enablePartitionDiscovery": false
+						},
+						"formatSettings": {
+							"type": "DelimitedTextReadSettings",
+							"skipLineCount": 0
+						}
+					},
+					"sink": {
+						"type": "SqlDWSink",
+						"preCopyScript": "TRUNCATE TABLE [SAP].[PurchasingDocumentItem]",
+						"tableOption": "autoCreate",
+						"disableMetricsCollection": false
+					},
+					"enableStaging": false,
+					"validateDataConsistency": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "MANDT",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Client",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "EBELN",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Purchasing_Doc_Num",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "EBELP",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Item_Num_Purchasing_Doc",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "LOEKZ",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Deletion_Indicator_Purchasing_Doc",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "STATU",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "RFQ_status",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "AEDAT",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Purchasing_Doc_Item_Change_Date",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "TXZ01",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Short_Text",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "MATNR",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Material_Num_1",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "EMATN",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Material_Num_2",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "BUKRS",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Company_Code",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "WERKS",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Plant",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "LGORT",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Storage_Location",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "BEDNR",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Req_Tracking_Num",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "MATKL",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Material_Group",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "INFNR",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Num_Purchasing_Info_Record",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "IDNLF",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Material_Num_Used_Vendor",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "KTMNG",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Target_Qty",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "MENGE",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Purchase_Order_Qty",
+									"type": "Decimal",
+									"physicalType": "decimal",
+									"scale": 3,
+									"precision": 20
+								}
+							},
+							{
+								"source": {
+									"name": "MEINS",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Purchase_Order_Unit_Measure",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "BPRME",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Order_Price_Unit_Purchasing",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "BPUMZ",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Numerator_Conversion_Order_Price_Unit_Order_Unit",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "BPUMN",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Denominator_Conv_Order_Price_Unit_Order_Unit",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "UMREZ",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Numerator_Conversion_Order_Unit_Base_Unit",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "UMREN",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Denominator_Conversion_Order_Unit_Base_Unit",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "NETPR",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Net_Price_Purchasing_Doc_in_Doc_Currency",
+									"type": "Decimal",
+									"physicalType": "decimal",
+									"scale": 2,
+									"precision": 20
+								}
+							},
+							{
+								"source": {
+									"name": "PEINH",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Price_Unit",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "NETWR",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Net_Order_Value_PO_Currency",
+									"type": "Decimal",
+									"physicalType": "decimal",
+									"scale": 2,
+									"precision": 20
+								}
+							},
+							{
+								"source": {
+									"name": "BRTWR",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Gross_order_value_PO_currency",
+									"type": "Decimal",
+									"physicalType": "decimal",
+									"scale": 2,
+									"precision": 20
+								}
+							},
+							{
+								"source": {
+									"name": "AGDAT",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Deadline_Submission_BidQuotation",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "WEBAZ",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Goods_Receipt_Procing_Time_Days",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "MWSKZ",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Tax_on_salespurchases_code",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "BONUS",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Settlement_Group_1_Purchasing",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "INSMK",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Stock_Type",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "SPINF",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Indicator_Update_Info_Record",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "PRSDR",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Price_Printout",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "SCHPR",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Indicator_Estimated_Price",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "MAHNZ",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Num_RemindersExpediters",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "MAHN1",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Num_Days_First_ReminderExpediter",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "MAHN2",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Num_Days_Second_ReminderExpediter",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "MAHN3",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Num_Days_Third_ReminderExpediter",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "UEBTO",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Overdelivery_Tolerance_Limit",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "UEBTK",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Indicator_Unlimited_Overdelivery_Allowed",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "UNTTO",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Underdelivery_Tolerance_Limit",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "BWTAR",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Valuation_Type",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "BWTTY",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Valuation_Cat",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "ABSKZ",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Rejection_Indicator",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "AGMEM",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Internal_Comment_on_Quotation",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "ELIKZ",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Delivery_Completed_Indicator",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "EREKZ",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Final_Invoice_Indicator",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "PSTYP",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Item_Cat_Purchasing_Doc",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "KNTTP",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Account_Assignment_Cat",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "KZVBR",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Consumption_Posting",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "VRTKZ",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Distribution_indicator_multiple_account_assignment",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "TWRKZ",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Partial_Invoice_Indicator",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "WEPOS",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Goods_Receipt_Indicator",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "WEUNB",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Goods_Receipt_NonValuated",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "REPOS",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Invoice_Receipt_Indicator",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "WEBRE",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Indicator_GRBased_Invoice_Verification",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "KZABS",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Order_Acknowledgment_Req",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "LABNR",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Order_Acknowledgment_Num",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "KONNR",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Num_Principal_Purchase_Agreement",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "KTPNR",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Item_Num_Principal_Purchase_Agreement",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "ABDAT",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Reconciliation_Date_Agreed_Cumulative_Qty",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "ABFTZ",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Agreed_Cumulative_Qty",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "ETFZ1",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Firm_Zone_GoAhead_Production",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "ETFZ2",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "TradeOff_Zone_GoAhead_Materials_Procurement",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "KZSTU",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "FirmTradeOff_Zones_Binding_Regard_Mat_Planning",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "NOTKZ",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Exclusion_Outline_Agreement_Item_Material_Class",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "LMEIN",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Base_Unit_Measure",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "EVERS",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Shipping_Instructions",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "ZWERT",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Target_Value_Outline_Agreement_Doc_Currency",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "NAVNW",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Nondeductible_input_tax",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "ABMNG",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Standard_release_order_Qty",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "PRDAT",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Date_Price_Determination",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "BSTYP",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Purchasing_Doc_Cat",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "EFFWR",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Effective_value_item",
+									"type": "Decimal",
+									"physicalType": "decimal",
+									"scale": 2,
+									"precision": 20
+								}
+							},
+							{
+								"source": {
+									"name": "XOBLR",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Item_affects_commitments",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "KUNNR",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Customer",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "ADRNR",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Manual_address_Num_purchasing_Doc_item",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "EKKOL",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Condition_Group_Vendor",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "SKTOF",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Item_Does_Not_Qualify_Cash_Discount",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "STAFO",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Update_group_statistics_update",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "PLIFZ",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Planned_Delivery_Time_Days",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "NTGEW",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Net_Weight",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "GEWEI",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Unit_Weight",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "TXJCD",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Tax_Jurisdiction",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "ETDRK",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Indicator_Printrelevant_schedule_lines_exist",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "SOBKZ",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Special_Stock_Indicator",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "ARSNR",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Settlement_reservation_Num",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "ARSPS",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Item_Num_settlement_reservation",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "INSNC",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Quality_inspection_indicator_cannot_be_changed",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "SSQSS",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Control_Key_Quality_Mgmt_Procurement",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "ZGTYP",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Certificate_Type",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "EAN11",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "International_Article_Num_EANUPC",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "BSTAE",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Confirmation_Control_Key",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "REVLV",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Revision_Level",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "GEBER",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Fund",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "FISTL",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Funds_Center",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "FIPOS",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Commitment_Item",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "KO_GSBER",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Business_area_reported_partner",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "KO_PARGB",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "assumed_business_area_business_partner",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "KO_PRCTR",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Profit_Center",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "KO_PPRCTR",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Partner_Profit_Center",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "MEPRF",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Price_Determination_Pricing_Date_Control",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "BRGEW",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Gross_Weight",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "VOLUM",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Volume",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "VOLEH",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Volume_unit",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "INCO1",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Incoterms_Part_1",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "INCO2",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Incoterms_Part_2",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "VORAB",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Advance_procurement_project_stock",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "KOLIF",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Prior_Vendor",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "LTSNR",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Vendor_Subrange",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "PACKNO",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Package_Num",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "FPLNR",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Invoicing_plan_Num",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "GNETWR",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Currently_not_used",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "STAPO",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Item_is_statistical",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "UEBPO",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "HigherLevel_Item_Purchasing_Docs",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "LEWED",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Latest_Possible_Goods_Receipt",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "EMLIF",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Vendor_be_suppliedwho_is_receive_delivery",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "LBLKZ",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Subcontracting_vendor",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "SATNR",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "CrossPlant_Configurable_Material",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "ATTYP",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Material_Cat",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "KANBA",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Kanban_Indicator",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "ADRN2",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Shipping_type",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "CUOBJ",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Configuration_internal_object_Num",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "XERSY",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Evaluated_Receipt_Settlement_ERS",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "EILDT",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Start_Date_GRBased_Settlement",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "DRDAT",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Last_Transmission",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "DRUHR",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Time",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "DRUNR",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Sequential_Num",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "AKTNR",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Promotion",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "ABELN",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Allocation_Table_Num",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "ABELP",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Item_Num_allocation_table",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "ANZPU",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Num_Points",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "PUNEI",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Points_unit",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "SAISO",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Season_Cat",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "SAISJ",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Season_Year",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "EBON2",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Settlement_Group_2",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "EBON3",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Settlement_Group_3",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "EBONF",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "PeriodEnd_Rebate_Settlement",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "MLMAA",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Material_ledger_activated_at_material_level",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "MHDRZ",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Minimum_Remaining_Shelf_Life",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "ANFNR",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "RFQ_Num",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "ANFPS",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Item_Num_RFQ",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "KZKFG",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Origin_Configuration",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "USEQU",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Quota_arrangement_usage",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "UMSOK",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Special_Stock_Indicator_Physical_Stock_Transfer",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "BANFN",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Purchase_Requisition_Num",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "BNFPO",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Item_Num_Purchase_Requisition",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "MTART",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Material_Type",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "UPTYP",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Subitem_Cat_Purchasing_Doc",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "UPVOR",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Subitems_Exist",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "KZWI1",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Subtotal_1",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "KZWI2",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Subtotal_2",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "KZWI3",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Subtotal_3",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "KZWI4",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Subtotal_4",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "KZWI5",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Subtotal_5",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "KZWI6",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Subtotal_6",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "SIKGR",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Procing_key_subitems",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "MFZHI",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Maximum_Cumulative_Material_GoAhead_Qty",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "FFZHI",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Maximum_Cumulative_Production_GoAhead_Qty",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "RETPO",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Returns_Item",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "AUREL",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Relevant_Allocation_Table",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "BSGRU",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Reason_Ordering",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "LFRET",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Delivery_Type_Returns_Vendors",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "MFRGR",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Material_freight_group",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "NRFHG",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Material_qualifies_discount_kind",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "J_1BNBM",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Brazilian_NCM_Code",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "J_1BMATUSE",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Usage_material",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "J_1BMATORG",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Origin_material",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "J_1BOWNPRO",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Produced_inhouse",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "J_1BINDUST",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Material_CFOP_Cat",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "ABUEB",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Release_Creation_Profile",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "NLABD",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Next_Forecast_Delivery_Schedule_Transmission",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "NFABD",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Next_JIT_Delivery_Schedule_Transmission",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "KZBWS",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Valuation_Special_Stock",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "BONBA",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Rebate_basis_1",
+									"type": "Decimal",
+									"physicalType": "decimal",
+									"scale": 2,
+									"precision": 20
+								}
+							},
+							{
+								"source": {
+									"name": "FABKZ",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Indicator_Item_Relevant_JIT_Delivery_Schedules",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "J_1AINDXP",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Inflation_Index",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "J_1AIDATEP",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Inflation_Index_Date",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "MPROF",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Manufacturer_Part_Profile",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "EGLKZ",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Outward_Delivery_Completed_Indicator",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "KZTLF",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Partial_Delivery_at_Item_Level_Stock_Transfer",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "KZFME",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Units_measure_usage",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "RDPRF",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Rounding_Profile",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "TECHS",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Parameter_VariantStandard_Variant",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "CHG_SRV",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Configuration_changed",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "CHG_FPLNR",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "No_invoice_this_item_although_not_free_charge",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "MFRPN",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Manufacturer_Part_Num",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "MFRNR",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Num_a_Manufacturer",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "EMNFR",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "External_manufacturer_code_name_or_Num",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "NOVET",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Item_blocked_SD_delivery",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "AFNAM",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Name_RequisitionerRequester",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "TZONRC",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Time_zone_recipient_location",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "IPRKZ",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Period_Indicator_Shelf_Life_Expiration_Date",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "LEBRE",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Indicator_ServiceBased_Invoice_Verification",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "BERID",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "MRP_Area",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "XCONDITIONS",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Conditions_item_although_no_invoice",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "APOMS",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "APO_as_Planning_System",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "CCOMP",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Posting_Logic_Case_Stock_Transfers",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "GRANT_NBR",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Grant",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "FKBER",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Functional_Area",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "STATUS",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Status_Purchasing_Doc_Item",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "RESLO",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Issuing_Storage_Location_Stock_Transport_Order",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "KBLNR",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Doc_Num_Earmarked_Funds",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "KBLPOS",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Earmarked_Funds_Doc_Item",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "WEORA",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Acceptance_At_Origin",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "SRV_BAS_COM",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "ServiceBased_Commitment",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "PRIO_URG",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Req_Urgency",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "PRIO_REQ",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Req_Priority",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "EMPST",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Receiving_point",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "SPE_ABGRU",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Reason_rejection_quotations_and_sales_orders",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "SPE_CRM_SO",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "CRM_Sales_Order_Num_TPOP_Proc",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "SPE_CRM_SO_ITEM",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "CRM_Sales_Order_Item_Num_TPOP_Proc",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "SPE_CRM_REF_SO",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "CRM_Ref_Order_Num_TPOP_Proc",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "SPE_CRM_REF_ITEM",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "CRM_Ref_Sales_Order_Item_Num_TPOP_Proc",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "SPE_CRM_FKREL",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Billing_Relevance_CRM",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "SPE_CHNG_SYS",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Last_Changer's_System_Type",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "SPE_INSMK_SRC",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Stock_Type_Source_Storage_Location_STO",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "SPE_CQ_CTRLTYPE",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "CQ_Control_Type",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "SPE_CQ_NOCQ",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "No_Transmission_Cumulative_Quantities",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "REASON_CODE",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Goods_Receipt_Reason_Code",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "CQU_SAR",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Cumulative_Goods_Receipts",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "ANZSN",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Num_serial_Nums",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "SPE_EWM_DTC",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "EWM_Delivery_Based_Tolerance_Check",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "EXLIN",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Item_Num_Length",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "EXSNR",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "External_Sorting",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "EHTYP",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "External_Hierarchy_Cat",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "RETPC",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Retention_Percent",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "DPTYP",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Down_Payment_Indicator",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "DPPCT",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Down_Payment_Percentage",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "DPAMT",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Down_Payment_Amount_Doc_Currency",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "DPDAT",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Due_Date_Down_Payment",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "FLS_RSTO",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Store_Return_Inbound_and_Outbound_Delivery",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "EXT_RFX_NUMBER",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Doc_Num_External_Doc",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "EXT_RFX_ITEM",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Item_Num_External_Doc",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "EXT_RFX_SYSTEM",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Logical_System",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "SRM_CONTRACT_ID",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Central_Contract",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "SRM_CONTRACT_ITM",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Central_Contract_Item_Num",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "BLK_REASON_ID",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Blocking_Reason_ID",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "BLK_REASON_TXT",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Blocking_Reason_Text",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "ITCONS",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "RealTime_Consumption_Posting",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "FIXMG",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Delivery_Date_and_Qty_Fixed",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "WABWE",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Indicator_GIbased_goods_receipt",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "TC_AUT_DET",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Tax_Code_Automatically_Determined",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "MANUAL_TC_REASON",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Manual_Tax_Code_Reason",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "FISCAL_INCENTIVE",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Tax_Incentive_Type",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "TAX_SUBJECT_ST",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Tax_Subject_Substituição_Tributária",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "FISCAL_INCENTIVE_ID",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Incentive_ID",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "/BEV1/NEGEN_ITEM",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Indicator_Item_Is_Generated",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "/BEV1/NEDEPFREE",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Indicator_Dependent_Items_Are_Free_Charge",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "/BEV1/NESTRUCCAT",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Structure_Cat_Material_Relationship",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "ADVCODE",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Advice_Code",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "BUDGET_PD",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "FM_Budget_Period",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "EXCPE",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Acceptance_Period",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "IUID_RELEVANT",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "IUIDRelevant",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "MRPIND",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Max_Retail_Price_Relevant",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "REFSITE",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Ref_Site_Purchasing",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "REF_ITEM",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Ref_Item_Remaining_Qty_Cancellation",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "SOURCE_ID",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Origin_Profile",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "SOURCE_KEY",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Key_Source_System",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "PUT_BACK",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Indicator_Putting_Back",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "POL_ID",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Order_List_Item_Num",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "CONS_ORDER",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Purchase_Order_Consignment",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							}
+						],
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "ADLS_PENA_EKPO",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "Sypanse_PENA_EKPO",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "Copy_BSEG",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [
+					{
+						"name": "Source",
+						"value": "finance-1-t15//EKKO_T15.csv"
+					},
+					{
+						"name": "Destination",
+						"value": ".Azure Data Lake Storage Gen2 file"
+					}
+				],
+				"typeProperties": {
+					"source": {
+						"type": "DelimitedTextSource",
+						"storeSettings": {
+							"type": "AzureBlobFSReadSettings",
+							"recursive": true,
+							"enablePartitionDiscovery": false
+						},
+						"formatSettings": {
+							"type": "DelimitedTextReadSettings",
+							"skipLineCount": 0
+						}
+					},
+					"sink": {
+						"type": "SqlDWSink",
+						"preCopyScript": "TRUNCATE TABLE [SAP].[AccountingDocumentItem]",
+						"tableOption": "autoCreate",
+						"disableMetricsCollection": false
+					},
+					"enableStaging": false,
+					"validateDataConsistency": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "BUKRS",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Company Code",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "BELNR",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Accounting Document Number",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "GJAHR",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Fiscal Year",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "BUZEI",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Number of Line Item Within Accounting Document",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "DMBTR",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Amount in Local Currency",
+									"type": "Decimal",
+									"physicalType": "decimal",
+									"scale": 2,
+									"precision": 20
+								}
+							},
+							{
+								"source": {
+									"name": "ZFBDT",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Baseline Date for Due Date Calculation",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "ZTERM",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Terms of Payment Key",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							}
+						],
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "ADLS_PENA_BSEG",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "Sypanse_PENA_BSEG",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "Copy_BKPF",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [
+					{
+						"name": "Source",
+						"value": "finance-1-t15//EKKO_T15.csv"
+					},
+					{
+						"name": "Destination",
+						"value": ".Azure Data Lake Storage Gen2 file"
+					}
+				],
+				"typeProperties": {
+					"source": {
+						"type": "DelimitedTextSource",
+						"storeSettings": {
+							"type": "AzureBlobFSReadSettings",
+							"recursive": true,
+							"enablePartitionDiscovery": false
+						},
+						"formatSettings": {
+							"type": "DelimitedTextReadSettings",
+							"skipLineCount": 0
+						}
+					},
+					"sink": {
+						"type": "SqlDWSink",
+						"preCopyScript": "TRUNCATE TABLE [SAP].[AccountingDocumentHeader]",
+						"tableOption": "autoCreate",
+						"disableMetricsCollection": false
+					},
+					"enableStaging": false,
+					"validateDataConsistency": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "BUKRS",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Company Code",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "BELNR",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Accounting Document Number",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "GJAHR",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Fiscal Year",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "BLDAT",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Document Date in Document",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "BUDAT",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Posting Date in the Document",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "XBLNR",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Reference Document Number",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							}
+						],
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "ADLS_PENA_BKPF",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "Sypanse_PENA_BKPF",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "Copy_LFA1",
+				"type": "Copy",
+				"dependsOn": [
+					{
+						"activity": "Copy_EKKO",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [
+					{
+						"name": "Source",
+						"value": "finance-1-t15//EKKO_T15.csv"
+					},
+					{
+						"name": "Destination",
+						"value": ".Azure Data Lake Storage Gen2 file"
+					}
+				],
+				"typeProperties": {
+					"source": {
+						"type": "DelimitedTextSource",
+						"storeSettings": {
+							"type": "AzureBlobFSReadSettings",
+							"recursive": true,
+							"enablePartitionDiscovery": false
+						},
+						"formatSettings": {
+							"type": "DelimitedTextReadSettings",
+							"skipLineCount": 0
+						}
+					},
+					"sink": {
+						"type": "SqlDWSink",
+						"preCopyScript": "TRUNCATE TABLE [SAP].[VendorMaster]",
+						"tableOption": "autoCreate",
+						"disableMetricsCollection": false
+					},
+					"enableStaging": false,
+					"validateDataConsistency": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "ADLS_PENA_LFA1",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "Sypanse_PENA_LFA1",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		],
+		"annotations": [],
+		"lastPublishTime": "2021-05-23T16:42:57Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

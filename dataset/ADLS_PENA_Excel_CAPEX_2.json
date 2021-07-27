@@ -1,0 +1,148 @@
+{
+	"name": "ADLS_PENA_Excel_CAPEX_2",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ADLS_dlsmsnpoc",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Excel",
+		"typeProperties": {
+			"sheetName": "INVOICES PROCESSING TRACKER",
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "2021 AP Invoice Tracker N-Z (CAPEX)v2.xlsx",
+				"folderPath": "excel",
+				"fileSystem": "pena"
+			},
+			"firstRowAsHeader": true
+		},
+		"schema": [
+			{
+				"name": "Vendor",
+				"type": "String"
+			},
+			{
+				"name": "Invoice #",
+				"type": "String"
+			},
+			{
+				"name": "Invoice Date",
+				"type": "String"
+			},
+			{
+				"name": "PO #",
+				"type": "String"
+			},
+			{
+				"name": "Amount",
+				"type": "String"
+			},
+			{
+				"name": "Category",
+				"type": "String"
+			},
+			{
+				"name": "PIC",
+				"type": "String"
+			},
+			{
+				"name": "Location",
+				"type": "String"
+			},
+			{
+				"name": "Received in AP Inbox",
+				"type": "String"
+			},
+			{
+				"name": "Uploaded for Approval",
+				"type": "String"
+			},
+			{
+				"name": "Invoice Approved",
+				"type": "String"
+			},
+			{
+				"name": "PO Released",
+				"type": "String"
+			},
+			{
+				"name": "MIGO'd",
+				"type": "String"
+			},
+			{
+				"name": "MIRO'd",
+				"type": "String"
+			},
+			{
+				"name": "MIRO Document",
+				"type": "String"
+			},
+			{
+				"name": "Barcode Signed",
+				"type": "String"
+			},
+			{
+				"name": "Sent to CAP",
+				"type": "String"
+			},
+			{
+				"name": "Processed by CAP",
+				"type": "String"
+			},
+			{
+				"name": "Issue?",
+				"type": "String"
+			},
+			{
+				"name": "Category",
+				"type": "String"
+			},
+			{
+				"name": "PIC/ Department",
+				"type": "String"
+			},
+			{
+				"name": "Start Date",
+				"type": "String"
+			},
+			{
+				"name": "End Date",
+				"type": "String"
+			},
+			{
+				"name": "Action Item(s)",
+				"type": "String"
+			},
+			{
+				"name": "Accrue?",
+				"type": "String"
+			},
+			{
+				"name": "JE",
+				"type": "String"
+			},
+			{
+				"name": "JE Text",
+				"type": "String"
+			},
+			{
+				"name": "Profit Center",
+				"type": "String"
+			},
+			{
+				"name": "G/L Account (SAP PO)",
+				"type": "String"
+			},
+			{
+				"name": "G/L Account (Accrual)",
+				"type": "String"
+			},
+			{
+				"name": "Vendor Name (Shortened)",
+				"type": "String"
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

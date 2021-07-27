@@ -1,0 +1,517 @@
+{
+	"name": "ADLS_PENA_BSEG",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ADLS_dlsmsnpoc",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "BSEG_T15.csv",
+				"fileSystem": "pena"
+			},
+			"columnDelimiter": "|",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": ""
+		},
+		"schema": [
+			{
+				"name": "MANDT",
+				"type": "String"
+			},
+			{
+				"name": "EBELN",
+				"type": "String"
+			},
+			{
+				"name": "BUKRS",
+				"type": "String"
+			},
+			{
+				"name": "BSTYP",
+				"type": "String"
+			},
+			{
+				"name": "BSART",
+				"type": "String"
+			},
+			{
+				"name": "BSAKZ",
+				"type": "String"
+			},
+			{
+				"name": "LOEKZ",
+				"type": "String"
+			},
+			{
+				"name": "STATU",
+				"type": "String"
+			},
+			{
+				"name": "AEDAT",
+				"type": "String"
+			},
+			{
+				"name": "ERNAM",
+				"type": "String"
+			},
+			{
+				"name": "PINCR",
+				"type": "String"
+			},
+			{
+				"name": "LPONR",
+				"type": "String"
+			},
+			{
+				"name": "LIFNR",
+				"type": "String"
+			},
+			{
+				"name": "SPRAS",
+				"type": "String"
+			},
+			{
+				"name": "ZTERM",
+				"type": "String"
+			},
+			{
+				"name": "ZBD1T",
+				"type": "String"
+			},
+			{
+				"name": "ZBD2T",
+				"type": "String"
+			},
+			{
+				"name": "ZBD3T",
+				"type": "String"
+			},
+			{
+				"name": "ZBD1P",
+				"type": "String"
+			},
+			{
+				"name": "ZBD2P",
+				"type": "String"
+			},
+			{
+				"name": "EKORG",
+				"type": "String"
+			},
+			{
+				"name": "EKGRP",
+				"type": "String"
+			},
+			{
+				"name": "WAERS",
+				"type": "String"
+			},
+			{
+				"name": "WKURS",
+				"type": "String"
+			},
+			{
+				"name": "KUFIX",
+				"type": "String"
+			},
+			{
+				"name": "BEDAT",
+				"type": "String"
+			},
+			{
+				"name": "KDATB",
+				"type": "String"
+			},
+			{
+				"name": "KDATE",
+				"type": "String"
+			},
+			{
+				"name": "BWBDT",
+				"type": "String"
+			},
+			{
+				"name": "ANGDT",
+				"type": "String"
+			},
+			{
+				"name": "BNDDT",
+				"type": "String"
+			},
+			{
+				"name": "GWLDT",
+				"type": "String"
+			},
+			{
+				"name": "AUSNR",
+				"type": "String"
+			},
+			{
+				"name": "ANGNR",
+				"type": "String"
+			},
+			{
+				"name": "IHRAN",
+				"type": "String"
+			},
+			{
+				"name": "IHREZ",
+				"type": "String"
+			},
+			{
+				"name": "VERKF",
+				"type": "String"
+			},
+			{
+				"name": "TELF1",
+				"type": "String"
+			},
+			{
+				"name": "LLIEF",
+				"type": "String"
+			},
+			{
+				"name": "KUNNR",
+				"type": "String"
+			},
+			{
+				"name": "KONNR",
+				"type": "String"
+			},
+			{
+				"name": "ABGRU",
+				"type": "String"
+			},
+			{
+				"name": "AUTLF",
+				"type": "String"
+			},
+			{
+				"name": "WEAKT",
+				"type": "String"
+			},
+			{
+				"name": "RESWK",
+				"type": "String"
+			},
+			{
+				"name": "LBLIF",
+				"type": "String"
+			},
+			{
+				"name": "INCO1",
+				"type": "String"
+			},
+			{
+				"name": "INCO2",
+				"type": "String"
+			},
+			{
+				"name": "KTWRT",
+				"type": "String"
+			},
+			{
+				"name": "SUBMI",
+				"type": "String"
+			},
+			{
+				"name": "KNUMV",
+				"type": "String"
+			},
+			{
+				"name": "KALSM",
+				"type": "String"
+			},
+			{
+				"name": "STAFO",
+				"type": "String"
+			},
+			{
+				"name": "LIFRE",
+				"type": "String"
+			},
+			{
+				"name": "EXNUM",
+				"type": "String"
+			},
+			{
+				"name": "UNSEZ",
+				"type": "String"
+			},
+			{
+				"name": "LOGSY",
+				"type": "String"
+			},
+			{
+				"name": "UPINC",
+				"type": "String"
+			},
+			{
+				"name": "STAKO",
+				"type": "String"
+			},
+			{
+				"name": "FRGGR",
+				"type": "String"
+			},
+			{
+				"name": "FRGSX",
+				"type": "String"
+			},
+			{
+				"name": "FRGKE",
+				"type": "String"
+			},
+			{
+				"name": "FRGZU",
+				"type": "String"
+			},
+			{
+				"name": "FRGRL",
+				"type": "String"
+			},
+			{
+				"name": "LANDS",
+				"type": "String"
+			},
+			{
+				"name": "LPHIS",
+				"type": "String"
+			},
+			{
+				"name": "ADRNR",
+				"type": "String"
+			},
+			{
+				"name": "STCEG_L",
+				"type": "String"
+			},
+			{
+				"name": "STCEG",
+				"type": "String"
+			},
+			{
+				"name": "ABSGR",
+				"type": "String"
+			},
+			{
+				"name": "ADDNR",
+				"type": "String"
+			},
+			{
+				"name": "KORNR",
+				"type": "String"
+			},
+			{
+				"name": "MEMORY",
+				"type": "String"
+			},
+			{
+				"name": "PROCSTAT",
+				"type": "String"
+			},
+			{
+				"name": "RLWRT",
+				"type": "String"
+			},
+			{
+				"name": "REVNO",
+				"type": "String"
+			},
+			{
+				"name": "SCMPROC",
+				"type": "String"
+			},
+			{
+				"name": "REASON_CODE",
+				"type": "String"
+			},
+			{
+				"name": "MEMORYTYPE",
+				"type": "String"
+			},
+			{
+				"name": "RETTP",
+				"type": "String"
+			},
+			{
+				"name": "RETPC",
+				"type": "String"
+			},
+			{
+				"name": "DPTYP",
+				"type": "String"
+			},
+			{
+				"name": "DPPCT",
+				"type": "String"
+			},
+			{
+				"name": "DPAMT",
+				"type": "String"
+			},
+			{
+				"name": "DPDAT",
+				"type": "String"
+			},
+			{
+				"name": "MSR_ID",
+				"type": "String"
+			},
+			{
+				"name": "HIERARCHY_EXISTS",
+				"type": "String"
+			},
+			{
+				"name": "THRESHOLD_EXISTS",
+				"type": "String"
+			},
+			{
+				"name": "LEGAL_CONTRACT",
+				"type": "String"
+			},
+			{
+				"name": "DESCRIPTION",
+				"type": "String"
+			},
+			{
+				"name": "RELEASE_DATE",
+				"type": "String"
+			},
+			{
+				"name": "FORCE_ID",
+				"type": "String"
+			},
+			{
+				"name": "FORCE_CNT",
+				"type": "String"
+			},
+			{
+				"name": "RELOC_ID",
+				"type": "String"
+			},
+			{
+				"name": "RELOC_SEQ_ID",
+				"type": "String"
+			},
+			{
+				"name": "POHF_TYPE",
+				"type": "String"
+			},
+			{
+				"name": "EQ_EINDT",
+				"type": "String"
+			},
+			{
+				"name": "EQ_WERKS",
+				"type": "String"
+			},
+			{
+				"name": "FIXPO",
+				"type": "String"
+			},
+			{
+				"name": "EKGRP_ALLOW",
+				"type": "String"
+			},
+			{
+				"name": "WERKS_ALLOW",
+				"type": "String"
+			},
+			{
+				"name": "CONTRACT_ALLOW",
+				"type": "String"
+			},
+			{
+				"name": "PSTYP_ALLOW",
+				"type": "String"
+			},
+			{
+				"name": "FIXPO_ALLOW",
+				"type": "String"
+			},
+			{
+				"name": "KEY_ID_ALLOW",
+				"type": "String"
+			},
+			{
+				"name": "AUREL_ALLOW",
+				"type": "String"
+			},
+			{
+				"name": "DELPER_ALLOW",
+				"type": "String"
+			},
+			{
+				"name": "EINDT_ALLOW",
+				"type": "String"
+			},
+			{
+				"name": "OTB_LEVEL",
+				"type": "String"
+			},
+			{
+				"name": "OTB_COND_TYPE",
+				"type": "String"
+			},
+			{
+				"name": "KEY_ID",
+				"type": "String"
+			},
+			{
+				"name": "OTB_VALUE",
+				"type": "String"
+			},
+			{
+				"name": "OTB_CURR",
+				"type": "String"
+			},
+			{
+				"name": "OTB_RES_VALUE",
+				"type": "String"
+			},
+			{
+				"name": "OTB_SPEC_VALUE",
+				"type": "String"
+			},
+			{
+				"name": "SPR_RSN_PROFILE",
+				"type": "String"
+			},
+			{
+				"name": "BUDG_TYPE",
+				"type": "String"
+			},
+			{
+				"name": "OTB_STATUS",
+				"type": "String"
+			},
+			{
+				"name": "OTB_REASON",
+				"type": "String"
+			},
+			{
+				"name": "CHECK_TYPE",
+				"type": "String"
+			},
+			{
+				"name": "CON_OTB_REQ",
+				"type": "String"
+			},
+			{
+				"name": "CON_PREBOOK_LEV",
+				"type": "String"
+			},
+			{
+				"name": "CON_DISTR_LEV",
+				"type": "String"
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
