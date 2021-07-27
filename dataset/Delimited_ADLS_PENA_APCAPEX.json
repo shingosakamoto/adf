@@ -11,7 +11,7 @@
 			"location": {
 				"type": "AzureBlobFSLocation",
 				"fileName": {
-					"value": "APInvoice_CAPEX",
+					"value": "{year}/{month}/{day}/today.csv",
 					"type": "Expression"
 				},
 				"folderPath": "excel",
