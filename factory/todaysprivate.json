@@ -1,0 +1,9 @@
+{
+	"name": "todaysprivate",
+	"location": "westus2",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "cba881e5-82c3-4141-93db-04bbaa44f9e7",
+		"tenantId": "72f988bf-86f1-41af-91ab-2d7cd011db47"
+	}
+}
