@@ -1,0 +1,10 @@
+{
+	"name": "AzureDataLakeStorage1",
+	"properties": {
+		"privateLinkResourceId": "/subscriptions/9faedcc7-bb54-4093-b497-e4f946001f69/resourceGroups/Business-Planning-Dev/providers/Microsoft.Storage/storageAccounts/bicgmachinelearning",
+		"groupId": "dfs",
+		"fqdns": [
+			"bicgmachinelearning.dfs.core.windows.net"
+		]
+	}
+}

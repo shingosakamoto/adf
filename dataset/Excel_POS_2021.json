@@ -1,0 +1,24 @@
+{
+	"name": "Excel_POS_2021",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "businessplanningsynapse-WorkspaceDefaultStorage",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Excel",
+		"typeProperties": {
+			"sheetName": "tbl_IPG_Data",
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "IPG Data - ALL (2021YTD).xlsx",
+				"folderPath": "POS",
+				"fileSystem": "powerbi"
+			},
+			"range": "",
+			"firstRowAsHeader": true
+		},
+		"schema": []
+	},
+	"type": "Microsoft.Synapse/workspaces/datasets"
+}

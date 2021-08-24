@@ -1,0 +1,314 @@
+{
+	"name": "CSV_OrderHistoryCurrent",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "businessplanningsynapse-WorkspaceDefaultStorage",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "OrderHistoryCurrent.csv",
+				"folderPath": "csv/OrderCurrent",
+				"fileSystem": "powerbi"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "Order No.",
+				"type": "String"
+			},
+			{
+				"name": "Line No.",
+				"type": "String"
+			},
+			{
+				"name": "Qty",
+				"type": "String"
+			},
+			{
+				"name": "Amount",
+				"type": "String"
+			},
+			{
+				"name": "Price List",
+				"type": "String"
+			},
+			{
+				"name": "Group",
+				"type": "String"
+			},
+			{
+				"name": "Group Nm",
+				"type": "String"
+			},
+			{
+				"name": "Sub Group",
+				"type": "String"
+			},
+			{
+				"name": "Sub Group Nm",
+				"type": "String"
+			},
+			{
+				"name": "Division",
+				"type": "String"
+			},
+			{
+				"name": "Division Nm",
+				"type": "String"
+			},
+			{
+				"name": "Sub Division",
+				"type": "String"
+			},
+			{
+				"name": "Sub Division Nm",
+				"type": "String"
+			},
+			{
+				"name": "Department",
+				"type": "String"
+			},
+			{
+				"name": "Department Nm",
+				"type": "String"
+			},
+			{
+				"name": "Sales Rep",
+				"type": "String"
+			},
+			{
+				"name": "Sales Rep Nm",
+				"type": "String"
+			},
+			{
+				"name": "Product Line Group",
+				"type": "String"
+			},
+			{
+				"name": "Product Line Group Nm",
+				"type": "String"
+			},
+			{
+				"name": "Product Line",
+				"type": "String"
+			},
+			{
+				"name": "Product Line Nm",
+				"type": "String"
+			},
+			{
+				"name": "Product Level 2",
+				"type": "String"
+			},
+			{
+				"name": "Product Level 2 Nm",
+				"type": "String"
+			},
+			{
+				"name": "Product Level 3",
+				"type": "String"
+			},
+			{
+				"name": "Product Level 3 Nm",
+				"type": "String"
+			},
+			{
+				"name": "Product Level 4",
+				"type": "String"
+			},
+			{
+				"name": "Product Level 4 Nm",
+				"type": "String"
+			},
+			{
+				"name": "Merchandise Group",
+				"type": "String"
+			},
+			{
+				"name": "Merchandise Group Nm",
+				"type": "String"
+			},
+			{
+				"name": "Merchandise",
+				"type": "String"
+			},
+			{
+				"name": "Merchandise Nm",
+				"type": "String"
+			},
+			{
+				"name": "Bill to",
+				"type": "String"
+			},
+			{
+				"name": "Bill to Nm",
+				"type": "String"
+			},
+			{
+				"name": "Sell to",
+				"type": "String"
+			},
+			{
+				"name": "Sell to Nm",
+				"type": "String"
+			},
+			{
+				"name": "Ship to",
+				"type": "String"
+			},
+			{
+				"name": "Ship to Nm",
+				"type": "String"
+			},
+			{
+				"name": "Ordered Date",
+				"type": "String"
+			},
+			{
+				"name": "Cust PO No.",
+				"type": "String"
+			},
+			{
+				"name": "EDI PO Line No.",
+				"type": "String"
+			},
+			{
+				"name": "Warehouse",
+				"type": "String"
+			},
+			{
+				"name": "Warehouse Nm",
+				"type": "String"
+			},
+			{
+				"name": "SO No.",
+				"type": "String"
+			},
+			{
+				"name": "Order Source",
+				"type": "String"
+			},
+			{
+				"name": "Order Type",
+				"type": "String"
+			},
+			{
+				"name": "Sales Admin",
+				"type": "String"
+			},
+			{
+				"name": "COA Product",
+				"type": "String"
+			},
+			{
+				"name": "COA Product Nm",
+				"type": "String"
+			},
+			{
+				"name": "Status",
+				"type": "String"
+			},
+			{
+				"name": "Merchandise (Set)",
+				"type": "String"
+			},
+			{
+				"name": "Merchandise Nm(Set)",
+				"type": "String"
+			},
+			{
+				"name": "SC",
+				"type": "String"
+			},
+			{
+				"name": "UOM Comp",
+				"type": "String"
+			},
+			{
+				"name": "RSD",
+				"type": "String"
+			},
+			{
+				"name": "RDD",
+				"type": "String"
+			},
+			{
+				"name": "PSD",
+				"type": "String"
+			},
+			{
+				"name": "PDD",
+				"type": "String"
+			},
+			{
+				"name": "Cancel Delivery Limit",
+				"type": "String"
+			},
+			{
+				"name": "Cancel Ship Limit",
+				"type": "String"
+			},
+			{
+				"name": "Hold Date",
+				"type": "String"
+			},
+			{
+				"name": "Sent to DC",
+				"type": "String"
+			},
+			{
+				"name": "Ship Date",
+				"type": "String"
+			},
+			{
+				"name": "Inv Date",
+				"type": "String"
+			},
+			{
+				"name": "Inv No.",
+				"type": "String"
+			},
+			{
+				"name": "Pay Term",
+				"type": "String"
+			},
+			{
+				"name": "System",
+				"type": "String"
+			},
+			{
+				"name": "Type",
+				"type": "String"
+			},
+			{
+				"name": "ETA",
+				"type": "String"
+			},
+			{
+				"name": "Container",
+				"type": "String"
+			},
+			{
+				"name": "Impt Inv No.",
+				"type": "String"
+			},
+			{
+				"name": "DO/SO No.",
+				"type": "String"
+			},
+			{
+				"name": "ETA Qty",
+				"type": "String"
+			}
+		]
+	},
+	"type": "Microsoft.Synapse/workspaces/datasets"
+}

@@ -1,0 +1,23 @@
+{
+	"name": "Excel_Master",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "businessplanningsynapse-WorkspaceDefaultStorage",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Excel",
+		"typeProperties": {
+			"sheetName": "Product Master",
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "Master 2019 - V1.xlsx",
+				"fileSystem": "powerbi"
+			},
+			"range": "A1",
+			"firstRowAsHeader": true
+		},
+		"schema": []
+	},
+	"type": "Microsoft.Synapse/workspaces/datasets"
+}

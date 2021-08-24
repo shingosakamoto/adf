@@ -1,0 +1,970 @@
+{
+	"name": "CSV_to_Synapse_AllOrderHistory",
+	"properties": {
+		"activities": [
+			{
+				"name": "OrderHistoryCurrent",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "DelimitedTextSource",
+						"storeSettings": {
+							"type": "AzureBlobFSReadSettings",
+							"recursive": true,
+							"enablePartitionDiscovery": false
+						},
+						"formatSettings": {
+							"type": "DelimitedTextReadSettings"
+						}
+					},
+					"sink": {
+						"type": "SqlDWSink",
+						"preCopyScript": "TRUNCATE TABLE [dbo].[OrderHistory]",
+						"disableMetricsCollection": false
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "Order No.",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Order_No",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Line No.",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Line_No",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Qty",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Qty",
+									"type": "Decimal",
+									"physicalType": "decimal",
+									"scale": 2,
+									"precision": 20
+								}
+							},
+							{
+								"source": {
+									"name": "Amount",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Amount",
+									"type": "Decimal",
+									"physicalType": "decimal",
+									"scale": 2,
+									"precision": 20
+								}
+							},
+							{
+								"source": {
+									"name": "Price List",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Price_List",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Group",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Group",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Group Nm",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Group_Nm",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Sub Group",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Sub_Group",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Sub Group Nm",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Sub_Group_Nm",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Division",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Division",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Division Nm",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Division_Nm",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Sub Division",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Sub_Division",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Sub Division Nm",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Sub_Division_Nm",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Department",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Department",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Department Nm",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Department_Nm",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Sales Rep",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Sales_Rep",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Sales Rep Nm",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Sales_Rep_Nm",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Product Line Group",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Product_Line_Group",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Product Line Group Nm",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Product_Line_Group_Nm",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Product Line",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Product_Line",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Product Line Nm",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Product_Line_Nm",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Product Level 2",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Product_Level_2",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Product Level 2 Nm",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Product_Level_2_Nm",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Product Level 3",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Product_Level_3",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Product Level 3 Nm",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Product_Level_3_Nm",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Product Level 4",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Product_Level_4",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Product Level 4 Nm",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Product_Level_4_Nm",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Merchandise Group",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Merchandise_Group",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Merchandise Group Nm",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Merchandise_Group_Nm",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Merchandise",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Merchandise",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Merchandise Nm",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Merchandise_Nm",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Bill to",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Bill_to",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Bill to Nm",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Bill_to_Nm",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Sell to",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Sell_to",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Sell to Nm",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Sell_to_Nm",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Ship to",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Ship_to",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Ship to Nm",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Ship_to_Nm",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Ordered Date",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Ordered_Date",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Cust PO No.",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Cust_PO_No",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "EDI PO Line No.",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "EDI_PO_Line_No",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Warehouse",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Warehouse",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Warehouse Nm",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Warehouse_Nm",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "SO No.",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "SO_No",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Order Source",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Order_Source",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Order Type",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Order_Type",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Sales Admin",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Sales_Admin",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "COA Product",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "COA_Product",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "COA Product Nm",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "COA_Product_Nm",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Status",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Status",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Merchandise (Set)",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Merchandise_Set",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Merchandise Nm(Set)",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Merchandise_Nm_Set",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "SC",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "SC",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "UOM Comp",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "UOM_Comp",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "RSD",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "RSD",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "RDD",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "RDD",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "PSD",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "PSD",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "PDD",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "PDD",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Cancel Delivery Limit",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Cancel_Delivery_Limit",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Cancel Ship Limit",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Cancel_Ship_Limit",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Hold Date",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Hold_Date",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Sent to DC",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Sent_to_DC",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Ship Date",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Ship_Date",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Inv Date",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Inv_Date",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Inv No.",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Inv_No.",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Pay Term",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Pay_Term",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "System",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "System",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Type",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Type",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "ETA",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "ETA",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Container",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Container",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Impt Inv No.",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Impt_Inv_No",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "DO/SO No.",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "DO-SO_No",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "ETA Qty",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "ETA_Qty",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							}
+						],
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "CSV_OrderHistoryCurrent",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "AzureSynapse_OrderHistory",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "Data flow1",
+				"type": "ExecuteDataFlow",
+				"dependsOn": [
+					{
+						"activity": "OrderHistoryCurrent",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "1.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"dataflow": {
+						"referenceName": "OrderHistoryFiltered",
+						"type": "DataFlowReference"
+					},
+					"staging": {
+						"linkedService": {
+							"referenceName": "businessplanningsynapse-WorkspaceDefaultStorage",
+							"type": "LinkedServiceReference"
+						},
+						"folderPath": "powerbi/synapse/staging"
+					},
+					"compute": {
+						"coreCount": 8,
+						"computeType": "General"
+					},
+					"traceLevel": "Fine"
+				}
+			}
+		],
+		"annotations": [],
+		"lastPublishTime": "2021-07-31T05:26:43Z"
+	},
+	"type": "Microsoft.Synapse/workspaces/pipelines"
+}

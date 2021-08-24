@@ -1,0 +1,422 @@
+{
+	"name": "AzureSynapse_POSHistory",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "businessplanningsynapse-WorkspaceDefaultSqlServer",
+			"type": "LinkedServiceReference",
+			"parameters": {
+				"DBName": "businessplanningsql"
+			}
+		},
+		"annotations": [],
+		"type": "AzureSqlDWTable",
+		"schema": [
+			{
+				"name": "YEAR",
+				"type": "nvarchar"
+			},
+			{
+				"name": "HALF",
+				"type": "nvarchar"
+			},
+			{
+				"name": "QUARTER",
+				"type": "nvarchar"
+			},
+			{
+				"name": "MONTH_NAME",
+				"type": "nvarchar"
+			},
+			{
+				"name": "BILLTO",
+				"type": "nvarchar"
+			},
+			{
+				"name": "BILLTO_NAME",
+				"type": "nvarchar"
+			},
+			{
+				"name": "POS_APPROVE_DATE",
+				"type": "date"
+			},
+			{
+				"name": "POS_SALESMAN",
+				"type": "nvarchar"
+			},
+			{
+				"name": "AE_Name",
+				"type": "nvarchar"
+			},
+			{
+				"name": "PROGRAM_GROUP",
+				"type": "nvarchar"
+			},
+			{
+				"name": "PROGRAM_LEVEL",
+				"type": "nvarchar"
+			},
+			{
+				"name": "POS_TYPE",
+				"type": "nvarchar"
+			},
+			{
+				"name": "BUYING_GROUP",
+				"type": "nvarchar"
+			},
+			{
+				"name": "POS_CUST_ID",
+				"type": "nvarchar"
+			},
+			{
+				"name": "CUST_CODE",
+				"type": "nvarchar"
+			},
+			{
+				"name": "POS_CUST",
+				"type": "nvarchar"
+			},
+			{
+				"name": "POS_CITY",
+				"type": "nvarchar"
+			},
+			{
+				"name": "POS_STATE",
+				"type": "nvarchar"
+			},
+			{
+				"name": "BILL_CUST_NAME",
+				"type": "nvarchar"
+			},
+			{
+				"name": "BILL_ADDR1",
+				"type": "nvarchar"
+			},
+			{
+				"name": "BILL_ADDR2",
+				"type": "nvarchar"
+			},
+			{
+				"name": "BILL_CITY",
+				"type": "nvarchar"
+			},
+			{
+				"name": "BILL_ST",
+				"type": "nvarchar"
+			},
+			{
+				"name": "SHIP_CUST_NAME",
+				"type": "nvarchar"
+			},
+			{
+				"name": "SHIP_CITY",
+				"type": "nvarchar"
+			},
+			{
+				"name": "SHIP_ST",
+				"type": "nvarchar"
+			},
+			{
+				"name": "COMM_CITY",
+				"type": "nvarchar"
+			},
+			{
+				"name": "COMM_STATE",
+				"type": "nvarchar"
+			},
+			{
+				"name": "COMMISSION_AE",
+				"type": "nvarchar"
+			},
+			{
+				"name": "COMMISSION_AE_NAME",
+				"type": "nvarchar"
+			},
+			{
+				"name": "SUBGROUP",
+				"type": "nvarchar"
+			},
+			{
+				"name": "SUBGRP_DESCR",
+				"type": "nvarchar"
+			},
+			{
+				"name": "INVOICE_NBR",
+				"type": "nvarchar"
+			},
+			{
+				"name": "SALE_DATE",
+				"type": "date"
+			},
+			{
+				"name": "ITEM_CATEGORY",
+				"type": "nvarchar"
+			},
+			{
+				"name": "ITEM_CODE",
+				"type": "nvarchar"
+			},
+			{
+				"name": "MDSE_Name",
+				"type": "nvarchar"
+			},
+			{
+				"name": "QTY_SHIP",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "PRICE_SHIP",
+				"type": "decimal",
+				"precision": 20,
+				"scale": 2
+			},
+			{
+				"name": "EXT_SHIP",
+				"type": "decimal",
+				"precision": 20,
+				"scale": 2
+			},
+			{
+				"name": "MSRP",
+				"type": "decimal",
+				"precision": 20,
+				"scale": 2
+			},
+			{
+				"name": "MSRP_TOTAL",
+				"type": "decimal",
+				"precision": 20,
+				"scale": 2
+			},
+			{
+				"name": "GUAR_PCT",
+				"type": "nvarchar"
+			},
+			{
+				"name": "PROG_GROUP",
+				"type": "nvarchar"
+			},
+			{
+				"name": "BUY_GROUP",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Q4_Prev_Prog_Level_as_of_11_1",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Q1_Prog_Level_as_of_2_1",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Q2_Prog_Level_as_of_5_1",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Q3_Prog_Level_as_of_8_1",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Q4_Prog_Level_as_of_11_1",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Q4_Prev_Min_Cons_Rebate",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Q1_Min_Cons_Rebate",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Q2_Min_Cons_Rebate",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Q3_Min_Cons_Rebate",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Q4_Min_Cons_Rebate",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Q1_SILVER",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Q1_GOLD",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Q1_PLATINUM",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Q1_PTS",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Q1_TTL",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Q1_LEVEL_ACHEIVED",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Q1_PAYOUT_LEVEL",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Q1_REBATE_AMT",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Q1_INSTANT",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Q1_MANUAL",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Q2_SILVER",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Q2_GOLD",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Q2_PLATINUM",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Q2_PTS",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Q2_TTL",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Q2_LEVEL_ACHEIVED",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Q2_PAYOUT_LEVEL",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Q2_REBATE_AMT",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Q2_INSTANT",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Q2_MANUAL",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Q3_SILVER",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Q3_GOLD",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Q3_PLATINUM",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Q3_PTS",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Q3_TTL",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Q3_LEVEL_ACHEIVED",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Q3_PAYOUT_LEVEL",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Q3_REBATE_AMT",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Q3_INSTANT",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Q3_MANUAL",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Q4_SILVER",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Q4_GOLD",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Q4_PLATINUM",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Q4_PTS",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Q4_TTL",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Q4_LEVEL_ACHEIVED",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Q4_PAYOUT_LEVEL",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Q4_REBATE_AMT",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Q4_INSTANT",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Q4_MANUAL",
+				"type": "nvarchar"
+			},
+			{
+				"name": "REP",
+				"type": "nvarchar"
+			},
+			{
+				"name": "REP_NAME",
+				"type": "nvarchar"
+			},
+			{
+				"name": "SPECIALTY",
+				"type": "nvarchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "POSHistory"
+		}
+	},
+	"type": "Microsoft.Synapse/workspaces/datasets"
+}

@@ -1,0 +1,20 @@
+{
+	"name": "AzureSynapse_Transaction",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "businessplanningsynapse-WorkspaceDefaultSqlServer",
+			"type": "LinkedServiceReference",
+			"parameters": {
+				"DBName": "businessplanningsql"
+			}
+		},
+		"annotations": [],
+		"type": "AzureSqlDWTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "TransactionYTD"
+		}
+	},
+	"type": "Microsoft.Synapse/workspaces/datasets"
+}

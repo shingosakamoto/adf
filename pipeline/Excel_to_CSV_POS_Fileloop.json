@@ -1,0 +1,103 @@
+{
+	"name": "Excel_to_CSV_POS_Fileloop",
+	"properties": {
+		"activities": [
+			{
+				"name": "ForEach1",
+				"type": "ForEach",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"items": {
+						"value": "@variables('Excelfile')",
+						"type": "Expression"
+					},
+					"activities": [
+						{
+							"name": "Copy data1",
+							"type": "Copy",
+							"dependsOn": [],
+							"policy": {
+								"timeout": "7.00:00:00",
+								"retry": 0,
+								"retryIntervalInSeconds": 30,
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"source": {
+									"type": "ExcelSource",
+									"storeSettings": {
+										"type": "AzureBlobFSReadSettings",
+										"recursive": false,
+										"enablePartitionDiscovery": false
+									}
+								},
+								"sink": {
+									"type": "DelimitedTextSink",
+									"storeSettings": {
+										"type": "AzureBlobFSWriteSettings"
+									},
+									"formatSettings": {
+										"type": "DelimitedTextWriteSettings",
+										"quoteAllText": true,
+										"fileExtension": ".txt"
+									}
+								},
+								"enableStaging": false,
+								"translator": {
+									"type": "TabularTranslator",
+									"typeConversion": true,
+									"typeConversionSettings": {
+										"allowDataTruncation": true,
+										"treatBooleanAsNumber": false
+									}
+								}
+							},
+							"inputs": [
+								{
+									"referenceName": "Excel_POS",
+									"type": "DatasetReference",
+									"parameters": {
+										"Excelfile": "@item()"
+									}
+								}
+							],
+							"outputs": [
+								{
+									"referenceName": "CSV_POS",
+									"type": "DatasetReference",
+									"parameters": {
+										"Excelfile": "@item()"
+									}
+								}
+							]
+						}
+					]
+				}
+			}
+		],
+		"variables": {
+			"Excelfile": {
+				"type": "Array",
+				"defaultValue": [
+					"2010",
+					"2011",
+					"2012",
+					"2013",
+					"2014",
+					"2015",
+					"2016",
+					"2017",
+					"2018",
+					"2019",
+					"2020"
+				]
+			}
+		},
+		"annotations": [],
+		"lastPublishTime": "2021-08-16T06:01:29Z"
+	},
+	"type": "Microsoft.Synapse/workspaces/pipelines"
+}

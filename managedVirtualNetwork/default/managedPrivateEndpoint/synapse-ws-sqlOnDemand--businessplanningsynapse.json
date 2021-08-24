@@ -1,0 +1,10 @@
+{
+	"name": "synapse-ws-sqlOnDemand--businessplanningsynapse",
+	"properties": {
+		"privateLinkResourceId": "/subscriptions/9faedcc7-bb54-4093-b497-e4f946001f69/resourceGroups/Business-Planning-Dev/providers/Microsoft.Synapse/workspaces/businessplanningsynapse",
+		"groupId": "sqlOnDemand",
+		"fqdns": [
+			"businessplanningsynapse-ondemand.7fbb8439-b141-4e56-8a95-b114e8c7a038.sql.azuresynapse.net"
+		]
+	}
+}

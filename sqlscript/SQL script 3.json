@@ -1,0 +1,17 @@
+{
+	"name": "SQL script 3",
+	"properties": {
+		"content": {
+			"query": "CREATE TABLE [dbo].[OrderHistoryImported]\n(\n[Order No] [nvarchar](1000) NULL,\n[Line No] [nvarchar](1000) NULL,\n[Qty] [decimal](20,2) NULL,\n[Amount] [decimal](20,2) NULL,\n[Price List] [nvarchar](1000) NULL,\n[Group] [nvarchar](1000) NULL,\n[Group Nm] [nvarchar](1000) NULL,\n[Sub Group] [nvarchar](1000) NULL,\n[Sub Group Nm] [nvarchar](1000) NULL,\n[Division] [nvarchar](1000) NULL,\n[Division Nm] [nvarchar](1000) NULL,\n[Sub Division] [nvarchar](1000) NULL,\n[Sub Division Nm] [nvarchar](1000) NULL,\n[Department] [nvarchar](1000) NULL,\n[Department Nm] [nvarchar](1000) NULL,\n[Sales Rep] [nvarchar](1000) NULL,\n[Sales Rep Nm] [nvarchar](1000) NULL,\n[Product Line Group] [nvarchar](1000) NULL,\n[Product Line Group Nm] [nvarchar](1000) NULL,\n[Product Line] [nvarchar](1000) NULL,\n[Product Line Nm] [nvarchar](1000) NULL,\n[Product Level 2] [nvarchar](1000) NULL,\n[Product Level 2 Nm] [nvarchar](1000) NULL,\n[Product Level 3] [nvarchar](1000) NULL,\n[Product Level 3 Nm] [nvarchar](1000) NULL,\n[Product Level 4] [nvarchar](1000) NULL,\n[Product Level 4 Nm] [nvarchar](1000) NULL,\n[Merchandise Group] [nvarchar](1000) NULL,\n[Merchandise Group Nm] [nvarchar](1000) NULL,\n[Merchandise] [nvarchar](1000) NULL,\n[Merchandise Nm] [nvarchar](1000) NULL,\n[Bill to] [nvarchar](1000) NULL,\n[Bill to Nm] [nvarchar](1000) NULL,\n[Sell to] [nvarchar](1000) NULL,\n[Sell to Nm] [nvarchar](1000) NULL,\n[Ship to] [nvarchar](1000) NULL,\n[Ship to Nm] [nvarchar](1000) NULL,\n[Ordered Date] [nvarchar](1000) NULL,\n[Cust PO No] [nvarchar](1000) NULL,\n[EDI PO Line No] [nvarchar](1000) NULL,\n[Warehouse] [nvarchar](1000) NULL,\n[Warehouse Nm] [nvarchar](1000) NULL,\n[SO No] [nvarchar](1000) NULL,\n[Order Source] [nvarchar](1000) NULL,\n[Order Type] [nvarchar](1000) NULL,\n[Sales Admin] [nvarchar](1000) NULL,\n[COA Product] [nvarchar](1000) NULL,\n[COA Product Nm] [nvarchar](1000) NULL,\n[Status] [nvarchar](1000) NULL,\n[Merchandise_Set] [nvarchar](1000) NULL,\n[Merchandise Nm_Set] [nvarchar](1000) NULL,\n[SC] [nvarchar](1000) NULL,\n[UOM Comp] [nvarchar](1000) NULL,\n[RSD] [nvarchar](1000) NULL,\n[RDD] [nvarchar](1000) NULL,\n[PSD] [nvarchar](1000) NULL,\n[PDD] [nvarchar](1000) NULL,\n[Cancel Delivery Limit] [nvarchar](1000) NULL,\n[Cancel Ship Limit] [nvarchar](1000) NULL,\n[Hold Date] [nvarchar](1000) NULL,\n[Sent to DC] [nvarchar](1000) NULL,\n[Ship Date] [nvarchar](1000) NULL,\n[Inv Date] [nvarchar](1000) NULL,\n[Inv No.] [nvarchar](1000) NULL,\n[Pay Term] [nvarchar](1000) NULL,\n[System] [nvarchar](1000) NULL,\n[Type] [nvarchar](1000) NULL,\n[ETA] [nvarchar](1000) NULL,\n[Container] [nvarchar](1000) NULL,\n[Impt Inv No] [nvarchar](1000) NULL,\n[DO-SO No] [nvarchar](1000) NULL,\n[ETA Qty] [nvarchar](1000) NULL\n)\nWITH\n(\n\tDISTRIBUTION = ROUND_ROBIN,\n\tCLUSTERED COLUMNSTORE INDEX\n)\n",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "supplychain",
+				"poolName": "Built-in"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}

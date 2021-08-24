@@ -1,0 +1,313 @@
+{
+	"name": "AzureSynapse_OrderHistory",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "businessplanningsynapse-WorkspaceDefaultSqlServer",
+			"type": "LinkedServiceReference",
+			"parameters": {
+				"DBName": "businessplanningsql"
+			}
+		},
+		"annotations": [],
+		"type": "AzureSqlDWTable",
+		"schema": [
+			{
+				"name": "Order_No",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Line_No",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Qty",
+				"type": "decimal",
+				"precision": 20,
+				"scale": 2
+			},
+			{
+				"name": "Amount",
+				"type": "decimal",
+				"precision": 20,
+				"scale": 2
+			},
+			{
+				"name": "Price_List",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Group",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Group_Nm",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Sub_Group",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Sub_Group_Nm",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Division",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Division_Nm",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Sub_Division",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Sub_Division_Nm",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Department",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Department_Nm",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Sales_Rep",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Sales_Rep_Nm",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Product_Line_Group",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Product_Line_Group_Nm",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Product_Line",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Product_Line_Nm",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Product_Level_2",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Product_Level_2_Nm",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Product_Level_3",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Product_Level_3_Nm",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Product_Level_4",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Product_Level_4_Nm",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Merchandise_Group",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Merchandise_Group_Nm",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Merchandise",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Merchandise_Nm",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Bill_to",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Bill_to_Nm",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Sell_to",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Sell_to_Nm",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Ship_to",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Ship_to_Nm",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Ordered_Date",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Cust_PO_No",
+				"type": "nvarchar"
+			},
+			{
+				"name": "EDI_PO_Line_No",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Warehouse",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Warehouse_Nm",
+				"type": "nvarchar"
+			},
+			{
+				"name": "SO_No",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Order_Source",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Order_Type",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Sales_Admin",
+				"type": "nvarchar"
+			},
+			{
+				"name": "COA_Product",
+				"type": "nvarchar"
+			},
+			{
+				"name": "COA_Product_Nm",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Status",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Merchandise_Set",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Merchandise_Nm_Set",
+				"type": "nvarchar"
+			},
+			{
+				"name": "SC",
+				"type": "nvarchar"
+			},
+			{
+				"name": "UOM_Comp",
+				"type": "nvarchar"
+			},
+			{
+				"name": "RSD",
+				"type": "nvarchar"
+			},
+			{
+				"name": "RDD",
+				"type": "nvarchar"
+			},
+			{
+				"name": "PSD",
+				"type": "nvarchar"
+			},
+			{
+				"name": "PDD",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Cancel_Delivery_Limit",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Cancel_Ship_Limit",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Hold_Date",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Sent_to_DC",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Ship_Date",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Inv_Date",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Inv_No.",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Pay_Term",
+				"type": "nvarchar"
+			},
+			{
+				"name": "System",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Type",
+				"type": "nvarchar"
+			},
+			{
+				"name": "ETA",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Container",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Impt_Inv_No",
+				"type": "nvarchar"
+			},
+			{
+				"name": "DO-SO_No",
+				"type": "nvarchar"
+			},
+			{
+				"name": "ETA_Qty",
+				"type": "nvarchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "OrderHistory"
+		}
+	},
+	"type": "Microsoft.Synapse/workspaces/datasets"
+}

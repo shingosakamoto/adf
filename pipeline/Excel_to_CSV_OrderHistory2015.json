@@ -1,0 +1,104 @@
+{
+	"name": "Excel_to_CSV_OrderHistory2015",
+	"properties": {
+		"activities": [
+			{
+				"name": "ForEach_2015",
+				"type": "ForEach",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"items": {
+						"value": "@variables('Sheetname')",
+						"type": "Expression"
+					},
+					"activities": [
+						{
+							"name": "OrderHistory2015",
+							"type": "Copy",
+							"dependsOn": [],
+							"policy": {
+								"timeout": "7.00:00:00",
+								"retry": 0,
+								"retryIntervalInSeconds": 30,
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"source": {
+									"type": "ExcelSource",
+									"storeSettings": {
+										"type": "AzureBlobFSReadSettings",
+										"recursive": true,
+										"enablePartitionDiscovery": false
+									}
+								},
+								"sink": {
+									"type": "DelimitedTextSink",
+									"storeSettings": {
+										"type": "AzureBlobFSWriteSettings"
+									},
+									"formatSettings": {
+										"type": "DelimitedTextWriteSettings",
+										"quoteAllText": true,
+										"fileExtension": ".txt"
+									}
+								},
+								"enableStaging": false,
+								"translator": {
+									"type": "TabularTranslator",
+									"typeConversion": true,
+									"typeConversionSettings": {
+										"allowDataTruncation": true,
+										"treatBooleanAsNumber": false
+									}
+								}
+							},
+							"inputs": [
+								{
+									"referenceName": "Excel_OrderHistory2015",
+									"type": "DatasetReference",
+									"parameters": {
+										"Sheetname": "@item()"
+									}
+								}
+							],
+							"outputs": [
+								{
+									"referenceName": "CSV_OrderHistory2015",
+									"type": "DatasetReference",
+									"parameters": {
+										"Sheetname": "@item()"
+									}
+								}
+							]
+						}
+					]
+				}
+			}
+		],
+		"variables": {
+			"Sheetname": {
+				"type": "Array",
+				"defaultValue": [
+					"01",
+					"02",
+					"03",
+					"04",
+					"05",
+					"06",
+					"07",
+					"08",
+					"09",
+					"10",
+					"11",
+					"12"
+				]
+			}
+		},
+		"annotations": [],
+		"lastPublishTime": "2021-08-18T02:24:12Z"
+	},
+	"type": "Microsoft.Synapse/workspaces/pipelines"
+}

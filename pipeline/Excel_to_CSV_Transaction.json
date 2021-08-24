@@ -1,0 +1,91 @@
+{
+	"name": "Excel_to_CSV_Transaction",
+	"properties": {
+		"activities": [
+			{
+				"name": "ForEach_Transaction",
+				"type": "ForEach",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"items": {
+						"value": "@variables('Sheetname')",
+						"type": "Expression"
+					},
+					"activities": [
+						{
+							"name": "Transaction",
+							"type": "Copy",
+							"dependsOn": [],
+							"policy": {
+								"timeout": "7.00:00:00",
+								"retry": 0,
+								"retryIntervalInSeconds": 30,
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"source": {
+									"type": "ExcelSource",
+									"storeSettings": {
+										"type": "AzureBlobFSReadSettings",
+										"recursive": true,
+										"enablePartitionDiscovery": false
+									}
+								},
+								"sink": {
+									"type": "DelimitedTextSink",
+									"storeSettings": {
+										"type": "AzureBlobFSWriteSettings"
+									},
+									"formatSettings": {
+										"type": "DelimitedTextWriteSettings",
+										"quoteAllText": true,
+										"fileExtension": ".txt"
+									}
+								},
+								"enableStaging": false,
+								"translator": {
+									"type": "TabularTranslator",
+									"typeConversion": true,
+									"typeConversionSettings": {
+										"allowDataTruncation": true,
+										"treatBooleanAsNumber": false
+									}
+								}
+							},
+							"inputs": [
+								{
+									"referenceName": "Excel_Transaction",
+									"type": "DatasetReference",
+									"parameters": {
+										"Sheetname": "@item()"
+									}
+								}
+							],
+							"outputs": [
+								{
+									"referenceName": "CSV_Transaction",
+									"type": "DatasetReference"
+								}
+							]
+						}
+					]
+				}
+			}
+		],
+		"variables": {
+			"Sheetname": {
+				"type": "Array",
+				"defaultValue": [
+					"Transaction YTD DirectQue",
+					"Sheet1"
+				]
+			}
+		},
+		"annotations": [],
+		"lastPublishTime": "2021-08-02T05:10:04Z"
+	},
+	"type": "Microsoft.Synapse/workspaces/pipelines"
+}

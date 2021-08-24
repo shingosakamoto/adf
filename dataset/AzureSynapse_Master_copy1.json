@@ -1,0 +1,20 @@
+{
+	"name": "AzureSynapse_Master_copy1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "businessplanningsynapse-WorkspaceDefaultSqlServer",
+			"type": "LinkedServiceReference",
+			"parameters": {
+				"DBName": "businessplanningsql"
+			}
+		},
+		"annotations": [],
+		"type": "AzureSqlDWTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "Master"
+		}
+	},
+	"type": "Microsoft.Synapse/workspaces/datasets"
+}

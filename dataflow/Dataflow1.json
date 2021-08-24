@@ -1,0 +1,32 @@
+{
+	"name": "Dataflow1",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "CSV_Master_copy1",
+						"type": "DatasetReference"
+					},
+					"name": "source1"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "AzureSynapse_Master_copy1",
+						"type": "DatasetReference"
+					},
+					"name": "sink1"
+				}
+			],
+			"transformations": [
+				{
+					"name": "DerivedColumn1"
+				}
+			],
+			"script": "source(output(\n\t\t{Global Company Code} as string,\n\t\t{PLG Code} as short,\n\t\t{PLG Name} as string,\n\t\t{PL Code} as string,\n\t\t{PL Name} as string,\n\t\t{Level 2 Code} as string,\n\t\t{Level 2 Name} as string,\n\t\t{Level 3 Code} as string,\n\t\t{Level 3 Name} as string,\n\t\t{Level 4 Code} as string,\n\t\t{Level 4 Name} as string,\n\t\t{MDSE Group Code} as string,\n\t\t{MDSE Group Name} as string,\n\t\t{MDSE Code} as string,\n\t\t{MDSE Name} as string,\n\t\t{MDSE Type} as string,\n\t\t{COA Product} as string,\n\t\t{COA Product Name} as string,\n\t\t{Vendor Code} as short,\n\t\t{Vendor Name} as string,\n\t\t{Country of Origin} as string,\n\t\t{UPC Code} as long,\n\t\t{Registration Status} as string,\n\t\t{Selling Hold} as boolean,\n\t\t{Shipping Hold} as boolean,\n\t\t{Inventory Quantity Controlled} as boolean,\n\t\t{Inventory Value Controlled} as boolean,\n\t\t{Product Type} as string,\n\t\t{Accept 8-digit} as boolean,\n\t\t{Represensive MDSE} as boolean,\n\t\t{Requires Product auth per Customer} as boolean,\n\t\t{Requires SO auth per Customer} as boolean,\n\t\tDiscontinued as boolean,\n\t\tRMA as boolean,\n\t\t{Open RMA} as boolean,\n\t\t{Distribution Type} as string,\n\t\t{Soft Allocation Type} as string,\n\t\t{Hard Allocation Type} as string,\n\t\t{Start Hard Allocation} as short,\n\t\tSubstitution as boolean,\n\t\tReplacement as boolean,\n\t\t{Minimum Qty} as string,\n\t\t{Maximum Qty} as string,\n\t\t{Increment Qty} as string,\n\t\t{MODEL ID MODEL Name} as string,\n\t\t{MODEL Type} as string,\n\t\t{Payment Term} as string,\n\t\t{Royalty Payment} as boolean,\n\t\t{eLAN Payment} as boolean,\n\t\t{Service Revenue} as boolean,\n\t\t{ARS Eligible} as boolean,\n\t\t{Created Date} as date,\n\t\t{Last Update} as date,\n\t\tProduct as string,\n\t\tCategory as string,\n\t\t{Sub-Category1} as string,\n\t\t{Sub-Category2} as string,\n\t\t{Sub-Category3} as string,\n\t\tPostponement as string,\n\t\t{BW PPM} as short,\n\t\t{CL PPM} as boolean,\n\t\t{Dev Code.} as boolean,\n\t\t{Model Family} as string,\n\t\t{Printing Comprehensive Strategy Segment} as boolean,\n\t\t{CL/BW} as string,\n\t\t{Paper size} as short,\n\t\t{Dev. Code} as boolean,\n\t\tVendor as boolean,\n\t\t{INC business unit} as boolean,\n\t\t{CUSA business unit} as boolean,\n\t\tSegment as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false) ~> source1\nsource1 derive({MDSE Name1} = split({MDSE Name}, \" \")[1],\n\t\t{MDSE Name2} = split({MDSE Name}, \" \")[2],\n\t\t{MDSE Code8} = left({MDSE Code}, 8)) ~> DerivedColumn1\nDerivedColumn1 sink(allowSchemaDrift: true,\n\tvalidateSchema: false,\n\tdeletable:false,\n\tinsertable:true,\n\tupdateable:false,\n\tupsertable:false,\n\tformat: 'table',\n\tstaged: true,\n\tallowCopyCommand: true,\n\tskipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true,\n\terrorHandlingOption: 'stopOnFirstError',\n\tmapColumn(\n\t\teach(match(true()),\n\t\t\treplace($$,\" \",\"_\") = $$)\n\t)) ~> sink1"
+		}
+	}
+}
