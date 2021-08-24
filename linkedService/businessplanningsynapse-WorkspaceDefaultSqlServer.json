@@ -3,7 +3,8 @@
 	"properties": {
 		"parameters": {
 			"DBName": {
-				"type": "String"
+				"type": "String",
+				"defaultValue": "synapsesql"
 			}
 		},
 		"annotations": [],
